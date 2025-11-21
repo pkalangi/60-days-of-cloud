@@ -5,7 +5,7 @@ Completed on: 22 Nov 2025
 ## What I Did
 - Created AWS Free Tier account
 - Enabled MFA on root user
-- Set up ₹500 monthly budget alert
+- Set up $7 monthly budget alert
 
 ## Screenshots
 ![MFA Enabled](mfa.jpg)
