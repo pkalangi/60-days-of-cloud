@@ -8,34 +8,9 @@
 (Refresh multiple times → shows different instance hostname → proves load balancing across 2 AZs)
 
 ## Architecture
-┌─────────────────────┐       ┌─────────────────────┐
-│     Internet        │       │     Your Browser    │
-└───────┬─────────────┘       └─────────▲───────────┘
-        │                               │
-        │                               │
-        ▼                               │
-┌─────────────────────┐                 │
-│   Internet Gateway   │                 │
-└───────┬─────────────┘                 │
-        │                               │
-        ▼                               │
-┌─────────────────────┐   ┌─────────────────────────┐
-│   Application Load  │◄──┤ Listener: HTTP 80       │
-│     Balancer (ALB)   │   └─────────────────────────┘
-└───────┬─────┬───────┘           │
-        │     │                   │
-        ▼     ▼                   │
-   ┌─────────┐ ┌─────────┐        │
-   │  AZ 1a  │ │  AZ 1b  │        │
-   │ Public  │ │ Public  │        │
-   │ Subnet  │ │ Subnet  │        │
-   └────┬────┘ └────┬────┘        │
-        │           │             │
-   ┌────▼────┐ ┌────▼────┐        │
-   │  EC2    │ │  EC2    │◄───────┘
-   │ Apache  │ │ Apache  │
-   │ Port 80 │ │ Port 80 │
-   └─────────┘ └─────────┘
+
+<img width="937" height="847" alt="ARCHITECTURE DIAGRAM" src="https://github.com/user-attachments/assets/3bec2186-8822-4223-b592-4697265d404c" />
+
 - Multi-AZ Application Load Balancer
 - 2 EC2 instances (t3.micro, Amazon Linux 2023) in **public subnets** across **ap-south-1a & 1b**
 - Apache running on port 80
